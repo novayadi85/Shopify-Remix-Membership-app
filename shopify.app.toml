@@ -1,0 +1,37 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "28d78b799f5c95fcc2b4f67306fe3bc5"
+name = "membership-strategy-app"
+handle = "membership-strategy-app"
+application_url = "https://nonprofit-thereof-psi-office.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "another-test-store-again.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://shopify.dev/apps/default-app-home/api/auth",
+  "https://invitations-simplified-refresh-pickup.trycloudflare.com/auth/callback",
+  "https://invitations-simplified-refresh-pickup.trycloudflare.com/auth/shopify/callback",
+  "https://invitations-simplified-refresh-pickup.trycloudflare.com/api/auth/callback",
+  "https://nonprofit-thereof-psi-office.trycloudflare.com/auth/callback",
+  "https://nonprofit-thereof-psi-office.trycloudflare.com/auth/shopify/callback",
+  "https://nonprofit-thereof-psi-office.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+[pos]
+embedded = false
